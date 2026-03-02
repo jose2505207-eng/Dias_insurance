@@ -247,11 +247,11 @@ footer{background:var(--navy);padding:3rem 2rem}
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal{opacity:1;transform:none}
 .reveal.visible{opacity:1;transform:none}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-1{}
+.reveal-delay-2{}
+.reveal-delay-3{}
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
@@ -590,16 +590,8 @@ footer{background:var(--navy);padding:3rem 2rem}
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Scroll reveal
-function revealAll(){document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible')});}
-if('IntersectionObserver' in window){
-  document.querySelectorAll('.reveal').forEach(function(el){
-    new IntersectionObserver(function(entries,obs){
-      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
-    },{threshold:0,rootMargin:'0px 0px -50px 0px'}).observe(el);
-  });
-  setTimeout(revealAll,2000);
-}else{revealAll();}
+// All sections visible
+document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible');});
 
 // Forms
 document.getElementById('heroForm').addEventListener('submit',function(e){
