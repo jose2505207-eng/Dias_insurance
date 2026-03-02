@@ -700,4 +700,20 @@ document.getElementById('contactForm').addEventListener('submit',function(e){
   window.toggleChat=function(){
     var btn=document.getElementById('chatBtn');
     var win=document.getElementById('chatWin');
-    var opened=win.classList.toggle('ope
+    var opened=win.classList.toggle('open');
+    btn.classList.toggle('open',opened);
+    document.getElementById('chatDot').style.display='none';
+    if(opened&&M().children.length===0){
+      (async function(){
+        await botSay('👋 ¡Hola! Soy el asistente de <b>Angel Calderon</b>, Insurance Broker.',600);
+        await botSay('Puedo responder tus preguntas, cotizar tu seguro, o conectarte con Angel. ¿Qué necesitas?',900);
+        mainMenu();
+      })();
+    }
+  };
+
+  setTimeout(function(){document.getElementById('chatDot').style.display='flex'},3000);
+})();
+</script>
+</body>
+</html>
